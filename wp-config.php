@@ -14,18 +14,20 @@
  * @package WordPress
  */
 
+$SHARED_DATABASE = parse_url( $_ENV['DATABASE_URL'] );
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define('DB_NAME', substr($SHARED_DATABASE['path'],0));
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_USER', $SHARED_DATABASE['user']);
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define('DB_PASSWORD', $SHARED_DATABASE['pass']);
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', $SHARED_DATABASE['host']);
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
