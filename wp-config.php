@@ -18,7 +18,7 @@ $SHARED_DATABASE = parse_url( $_ENV['DATABASE_URL'] );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', substr($SHARED_DATABASE['path'],0));
+define('DB_NAME', substr($SHARED_DATABASE['path'],1));
 
 /** MySQL database username */
 define('DB_USER', $SHARED_DATABASE['user']);
